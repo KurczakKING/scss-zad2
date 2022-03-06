@@ -6,11 +6,11 @@ const CopyWebPackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: {
 	  "index": "./src/index.js",
-	  "kontakt": "./src/kontakt.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].bundle.js",
+    clean: true
   },
   devtool: "source-map",
   devServer: {
@@ -25,23 +25,7 @@ module.exports = {
 	  inject: true,
 	  chunks: ['index']
     }),
-	new HtmlWebpackPlugin({
-		template: "./src/kontakt.html",
-		inject: true,
-		chunks: ['kontakt'],
-		filename: 'kontakt.html'
-	}),
 	new MiniCssExtractPlugin(),
-	new CopyWebPackPlugin({
-		patterns: [
-			{
-				from: "./src/assets/**",
-				to() {
-					return "assets/img/[name][ext]";
-				},
-			},
-		],
-	}),
   ],
   module: {
     rules: [
