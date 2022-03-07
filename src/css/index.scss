@@ -6,3 +6,57 @@
 @import "./base/_navigation";
 @import "./base/_forms";
 @import "./base/_works";
+
+
+@media (min-width: 500px) {
+    .caption-blurb {
+      font-size: 18px;
+      font-size: 1.125rem; } }
+  
+  @media (min-width: 768px) {
+    header {
+      min-height: 95vh;
+      padding-top: 14em; }
+    .figure-sm {
+      width: 48%;
+      display: block;
+      float: left; }
+    .figure-sm.one {
+      margin-left: 4%; } }
+  
+  @media (min-width: 992px) {
+    .nav-toggle {
+      display: none; }
+    .nav-main {
+      display: block;
+      float: right;
+      width: 70%; }
+      .nav-main ul {
+        text-align: right; }
+      .nav-main li {
+        display: inline-block;
+        margin-left: 40px; }
+      .nav-main a {
+        text-transform: uppercase;
+        padding: 0; }
+    .work-column-lg {
+      display: block;
+      width: 61.5%;
+      float: left; }
+    .work-column-sm {
+      display: block;
+      width: 35.5%;
+      float: left;
+      margin-left: 3%; }
+      .work-column-sm img {
+        height: auto; }
+    form {
+      padding-bottom: 40px; }
+      form p {
+        display: inline-block;
+        float: left; }
+      form .button-send {
+        float: right;
+        margin-top: 0; }
+    .text-center form p, h2 form p, h3 form p, .nav-main form p {
+      margin-top: 10px; } }

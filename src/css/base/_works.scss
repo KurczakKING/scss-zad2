@@ -8,6 +8,41 @@
   clear: both;
 }
 
+%caption {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+}
+
+%ease-in-out {
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+%caption-ease {
+  @extend %caption;
+  @extend %ease-in-out;
+}
+
+%translate {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+%border-bot {
+  border-bottom: $border-caption;
+  bottom: 0;
+}
+
+%border-top {
+  border-top: $border-caption;
+  top: 0;
+}
+
 figure {
   position: relative;
   margin: 10px 0;
@@ -22,30 +57,28 @@ figure {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: $color-black;
     opacity: 0;
-    -webkit-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    @extend %ease-in-out;
   }
   &:hover:before {
     opacity: 0.7;
   }
   &:hover .caption-head:before {
-    left: -20px;
-    top: -20px;
+    left: $size-shifting;
+    top: $size-shifting;
   }
   &:hover .caption-head:after {
-    right: -20px;
-    top: -20px;
+    right: $size-shifting;
+    top: $size-shifting;
   }
   &:hover .caption-blurb:before {
-    left: -20px;
-    bottom: -20px;
+    left: $size-shifting;
+    bottom: $size-shifting;
   }
   &:hover .caption-blurb:after {
-    right: -20px;
-    bottom: -20px;
+    right: $size-shifting;
+    bottom: $size-shifting;
   }
   img {
     width: 100%;
@@ -56,15 +89,10 @@ figure {
     top: 50%;
     left: 50%;
     min-width: 200px;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    @extend %translate;
     color: $color-white;
     line-height: 2;
-    -webkit-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    @extend %ease-in-out;
 
     &:before {
       content: "";
@@ -73,10 +101,7 @@ figure {
       height: 2px;
       top: -webkit-calc(50% + 2px);
       top: calc(50% + 2px);
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      @extend %translate;
       background-color: $color-white;
     }
     .caption-head {
@@ -87,62 +112,33 @@ figure {
       font-size: 1.375rem;
 
       &:before {
-        content: "";
-        position: absolute;
-        border-top: 2px solid $color-white;
-        border-left: 2px solid $color-white;
-        height: 20px;
-        width: 20px;
+        @extend %caption-ease;
+        @extend %border-top;
+        border-left: $border-caption;
         left: 0;
-        top: 0;
-        -webkit-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
       }
       &:after {
-        content: "";
-        position: absolute;
-        border-top: 2px solid $color-white;
-        border-right: 2px solid $color-white;
-        height: 20px;
-        width: 20px;
+        @extend %caption-ease;
+        @extend %border-top;
+        border-right: $border-caption;
         right: 0;
-        top: 0;
-        -webkit-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
       }
     }
     .caption-blurb {
       position: relative;
 
       &:before {
-        content: "";
-        position: absolute;
-        border-bottom: 2px solid $color-white;
-        border-left: 2px solid $color-white;
-        height: 20px;
-        width: 20px;
+        @extend %caption-ease;
+        @extend %border-bot;
+        border-left: $border-caption;
         left: 0;
-        bottom: 0;
-        -webkit-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
       }
       &:after {
-        content: "";
-        position: absolute;
-        border-bottom: 2px solid $color-white;
-        border-right: 2px solid $color-white;
-        height: 20px;
-        width: 20px;
+        @extend %caption-ease;
+        @extend %border-bot;
+        border-right: $border-caption;
         right: 0;
-        bottom: 0;
-        -webkit-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
       }
     }
-
   }
 }
