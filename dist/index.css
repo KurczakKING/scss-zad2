@@ -5,6 +5,23 @@
 /*!***************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/css/index.scss (1) ***!
   \***************************************************************************************************************************************************************************************/
+button {
+  background-color: #d07c7c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-size: 0.75rem;
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+  button:hover {
+    opacity: 0.6; }
+  button-send {
+    margin-top: 10px; }
+
 @media (min-width: 500px) {
   .caption-blurb {
     font-size: 18px;
@@ -59,23 +76,6 @@
   h3 form p,
   .nav-main form p {
     margin-top: 10px; } }
-
-button {
-  background-color: #d07c7c;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 10px 30px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-size: 0.75rem;
-  -webkit-transition: opacity 0.5s;
-  -o-transition: opacity 0.5s;
-  transition: opacity 0.5s; }
-  button:hover {
-    opacity: 0.6; }
-  button-send {
-    margin-top: 10px; }
 
 html,
 body,
@@ -536,6 +536,61 @@ h1 {
 
 footer .copy {
   margin-top: 20px; }
+
+@media (min-width: 500px) {
+  .caption-blurb {
+    font-size: 18px;
+    font-size: 1.125rem; } }
+
+@media (min-width: 768px) {
+  header {
+    min-height: 95vh;
+    padding-top: 14em; }
+  .figure-sm {
+    width: 48%;
+    display: block;
+    float: left; }
+  .figure-sm.one {
+    margin-left: 4%; } }
+
+@media (min-width: 992px) {
+  .nav-toggle {
+    display: none; }
+  .nav-main {
+    display: block;
+    float: right;
+    width: 70%; }
+  .nav-main ul {
+    text-align: right; }
+  .nav-main li {
+    display: inline-block;
+    margin-left: 40px; }
+  .nav-main a {
+    text-transform: uppercase;
+    padding: 0; }
+  .work-column-lg {
+    display: block;
+    width: 61.5%;
+    float: left; }
+  .work-column-sm {
+    display: block;
+    width: 35.5%;
+    float: left;
+    margin-left: 3%; }
+  .work-column-sm img {
+    height: auto; }
+  form {
+    padding-bottom: 40px; }
+  form p {
+    display: inline-block; }
+  form .button-send {
+    float: right;
+    margin-top: 0; }
+  .text-center form p,
+  h2 form p,
+  h3 form p,
+  .nav-main form p {
+    margin-top: 10px; } }
 
 
 /*# sourceMappingURL=index.css.map*/
