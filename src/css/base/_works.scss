@@ -1,39 +1,4 @@
-.work-wrap:before,
-.work-wrap:after {
-  content: " ";
-  display: table;
-}
-
-.work-wrap:after {
-  clear: both;
-}
-
-%caption {
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 20px;
-}
-
-%ease-in-out {
-  -webkit-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-}
-
-%caption-ease {
-  @extend %caption;
-  @extend %ease-in-out;
-}
-
-%translate {
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-%border-bot {
+%border-bottom {
   border-bottom: $border-caption;
   bottom: 0;
 }
@@ -44,101 +9,108 @@
 }
 
 figure {
-  position: relative;
+  position: $position-relative;
+  display: $display-inline;
   margin: 10px 0;
-  cursor: pointer;
-  display: inline-block;
-  width: 100%;
+  width: $width-full;
+  cursor: $cursor-hand;
 
   &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    content: $content-empty;
+    position: $position-absolute;
+    width: $width-full;
+    height: $height-full;
+    top: $value-zero;
+    left: $value-zero;
     background-color: $color-black;
-    opacity: 0;
-    @extend %ease-in-out;
+    opacity: $value-zero;
+    @include trans-ease;
   }
   &:hover:before {
     opacity: 0.7;
   }
+
   &:hover .caption-head:before {
-    left: $size-shifting;
-    top: $size-shifting;
+    left: $dist-move;
+    top: $dist-move;
   }
   &:hover .caption-head:after {
-    right: $size-shifting;
-    top: $size-shifting;
+    right: $dist-move;
+    top: $dist-move;
   }
   &:hover .caption-blurb:before {
-    left: $size-shifting;
-    bottom: $size-shifting;
+    left: $dist-move;
+    bottom: $dist-move;
   }
   &:hover .caption-blurb:after {
-    right: $size-shifting;
-    bottom: $size-shifting;
+    right: $dist-move;
+    bottom: $dist-move;
   }
+
   img {
-    width: 100%;
-    display: block;
+    width: $width-full;
+    display: $display-block;
   }
+
   figcaption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 200px;
-    @extend %translate;
+    @include trans-centered;
+    @include trans-ease;
     color: $color-white;
+    min-width: 200px;
     line-height: 2;
-    @extend %ease-in-out;
 
     &:before {
-      content: "";
-      position: absolute;
+      @include trans-centered;
+      content: $content-empty;
+      position: $position-absolute;
+      background-color: $color-white;
       width: 80%;
       height: 2px;
       top: -webkit-calc(50% + 2px);
       top: calc(50% + 2px);
-      @extend %translate;
-      background-color: $color-white;
     }
+
     .caption-head {
-      position: relative;
-      font-family: "Roboto";
-      text-transform: uppercase;
-      font-size: 22px;
-      font-size: 1.375rem;
+      @extend %header;
 
       &:before {
-        @extend %caption-ease;
+        @include caption;
         @extend %border-top;
         border-left: $border-caption;
-        left: 0;
+        left: $value-zero;
       }
       &:after {
-        @extend %caption-ease;
+        @include caption;
         @extend %border-top;
         border-right: $border-caption;
-        right: 0;
+        right: $value-zero;
       }
     }
     .caption-blurb {
-      position: relative;
+      position: $position-relative;
 
       &:before {
-        @extend %caption-ease;
-        @extend %border-bot;
+        @include caption;
+        @extend %border-bottom;
         border-left: $border-caption;
-        left: 0;
+        left: $value-zero;
       }
       &:after {
-        @extend %caption-ease;
-        @extend %border-bot;
+        @include caption;
+        @extend %border-bottom;
         border-right: $border-caption;
-        right: 0;
+        right: $value-zero;
       }
     }
   }
+}
+
+.work-wrap:before {
+  content: " ";
+  display: table;
+}
+
+.work-wrap:after {
+  @extend .work-wrap:before;
+  clear: both;
 }

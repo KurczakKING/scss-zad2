@@ -3,6 +3,20 @@ $color-secondary: #d07c7c;
 $color-white: #fff;
 $color-black: #000;
 
-$size-shifting: -20px;
+$dist-move: -20px;
+$value-zero: 0;
 
 $border-caption: 2px solid $color-white;
+
+$position-absolute: absolute;
+$position-relative: relative;
+
+$display-inline: inline-block;
+$display-block: block;
+
+$width-full: 100%;
+$height-full: 100%;
+
+$content-empty: "";
+
+$cursor-hand: pointer;
