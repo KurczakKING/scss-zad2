@@ -1,55 +1,46 @@
-%border-bottom {
-  border-bottom: $border-caption;
-  bottom: 0;
-}
-
-%border-top {
-  border-top: $border-caption;
-  top: 0;
+.work-wrap {
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    @extend .work-wrap:before;
+    clear: both;
+  }
 }
 
 figure {
+  @include display(inline-block, 100%);
+  @include margins(10px, 0);
   position: $position-relative;
-  display: $display-inline;
-  margin: 10px 0;
-  width: $width-full;
   cursor: $cursor-hand;
 
   &:before {
-    content: $content-empty;
-    position: $position-absolute;
-    width: $width-full;
-    height: $height-full;
-    top: $value-zero;
-    left: $value-zero;
+    @include line-horizontal;
+    @include size(100%, 100%);
+    @include corners(0, 0, 0, 0) @include trans-ease;
     background-color: $color-black;
     opacity: $value-zero;
-    @include trans-ease;
   }
   &:hover:before {
     opacity: 0.7;
   }
 
   &:hover .caption-head:before {
-    left: $dist-move;
-    top: $dist-move;
+    @include corners(-20px, 0, 0, -20px);
   }
   &:hover .caption-head:after {
-    right: $dist-move;
-    top: $dist-move;
+    @include corners(-20px, -20px, 0, null);
   }
   &:hover .caption-blurb:before {
-    left: $dist-move;
-    bottom: $dist-move;
+    @include corners(null, 0, -20px, -20px);
   }
   &:hover .caption-blurb:after {
-    right: $dist-move;
-    bottom: $dist-move;
+    @include corners(null, -20px, -20px, null);
   }
 
   img {
-    width: $width-full;
-    display: $display-block;
+    @include display(block, 100%);
   }
 
   figcaption {
@@ -61,11 +52,9 @@ figure {
 
     &:before {
       @include trans-centered;
-      content: $content-empty;
-      position: $position-absolute;
+      @include size(80%, 2px);
+      @include line-horizontal;
       background-color: $color-white;
-      width: 80%;
-      height: 2px;
       top: -webkit-calc(50% + 2px);
       top: calc(50% + 2px);
     }
@@ -75,15 +64,13 @@ figure {
 
       &:before {
         @include caption;
-        @extend %border-top;
-        border-left: $border-caption;
-        left: $value-zero;
+        @include border-top;
+        @include border-left;
       }
       &:after {
         @include caption;
-        @extend %border-top;
-        border-right: $border-caption;
-        right: $value-zero;
+        @include border-top;
+        @include border-right;
       }
     }
     .caption-blurb {
@@ -91,26 +78,14 @@ figure {
 
       &:before {
         @include caption;
-        @extend %border-bottom;
-        border-left: $border-caption;
-        left: $value-zero;
+        @include border-bottom;
+        @include border-left;
       }
       &:after {
         @include caption;
-        @extend %border-bottom;
-        border-right: $border-caption;
-        right: $value-zero;
+        @include border-bottom;
+        @include border-right;
       }
     }
   }
-}
-
-.work-wrap:before {
-  content: " ";
-  display: table;
-}
-
-.work-wrap:after {
-  @extend .work-wrap:before;
-  clear: both;
 }

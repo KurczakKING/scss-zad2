@@ -23,3 +23,49 @@
   width: 20px;
   @include trans-ease;
 }
+
+@mixin border-bottom {
+  border-bottom: $border-caption;
+  bottom: 0;
+}
+
+@mixin border-top {
+  border-top: $border-caption;
+  top: 0;
+}
+
+@mixin border-left {
+  border-left: $border-caption;
+  left: 0;
+}
+
+@mixin border-right {
+  border-right: $border-caption;
+  right: 0;
+}
+
+@mixin line-horizontal {
+  position: $position-absolute;
+  content: $content-empty;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin corners($top,$right,$bottom,$left) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin margins($top-bot,$right-left) {
+  margin: $top-bot $right-left;
+}
+
+@mixin display($display,$width) {  
+  display: $display;
+  width: $width;
+}
