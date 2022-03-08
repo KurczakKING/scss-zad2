@@ -1,3 +1,5 @@
+@import "../utils/_variables";
+
 .work-wrap {
   &:before {
     content: " ";
@@ -18,7 +20,8 @@ figure {
   &:before {
     @include line-horizontal;
     @include size(100%, 100%);
-    @include corners(0, 0, 0, 0) @include trans-ease;
+    @include corners(0, 0, 0, 0);
+    @include transition(all, 1s, ease-in-out);
     background-color: $color-black;
     opacity: $value-zero;
   }
@@ -45,7 +48,7 @@ figure {
 
   figcaption {
     @include trans-centered;
-    @include trans-ease;
+    @include transition(all, 1s, ease-in-out);
     color: $color-white;
     min-width: 200px;
     line-height: 2;

@@ -10,10 +10,24 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin trans-ease {
-  -webkit-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+@mixin transform($sx,$sy) {
+  -webkit-transform: scale($sx, $sy);
+  -ms-transform: scale($sx, $sy);
+  -o-transform: scale($sx, $sy);
+  transform: scale($sx, $sy);
+}
+
+@mixin transform-origin($x,$y) {
+  -webkit-transform-origin: $x $y;
+  -ms-transform-origin: $x $y;
+  -o-transform-origin: $x $y;
+  transform-origin: $x $y;
+}
+
+@mixin transition($elem,$time,$func){
+  -webkit-transition: $elem $time $func;
+  -o-transition: $elem $time $func;
+  transition: $elem $time $func;
 }
 
 @mixin caption {
@@ -21,7 +35,7 @@
   position: $position-absolute;
   height: 20px;
   width: 20px;
-  @include trans-ease;
+  @include transition(all, 1s, ease-in-out);
 }
 
 @mixin border-bottom {
@@ -44,14 +58,13 @@
   right: 0;
 }
 
+@mixin border($color) {
+  border: 2px solid $color;
+}
+
 @mixin line-horizontal {
   position: $position-absolute;
   content: $content-empty;
-}
-
-@mixin size($width, $height) {
-  width: $width;
-  height: $height;
 }
 
 @mixin corners($top,$right,$bottom,$left) {
@@ -68,4 +81,9 @@
 @mixin display($display,$width) {  
   display: $display;
   width: $width;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
 }

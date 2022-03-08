@@ -1,29 +1,24 @@
 @import "../utils/_variables";
 
 form {
-  margin: 20px auto;
-  width: 100%;
+  @include margins(20px, auto);
   max-width: 550px;
 
   p {
-    font-size: 12px;
-    font-size: 0.75rem;
+    font-size: $p-size;
   }
 }
 
-input,
-textarea {
-  display: block;
-  width: 100%;
-  font-size: 12px;
-  font-size: 0.75rem;
+input {
+  @include display(block, 100%);
+  @include border($color-secondary);
+  font-size: $p-size;
+  color: $color-primary;
   outline: none;
   padding: 15px;
-  color: $color-primary;
-  border: 2px solid $color-secondary;
   margin-bottom: 20px;
 }
-
 textarea {
+  @extend input;
   resize: none;
 }

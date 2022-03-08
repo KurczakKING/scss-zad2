@@ -184,15 +184,10 @@ h3,
 }
 
 .arrow {
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+  @include transition(all,0.5s,none);
 
   &:hover {
-    -webkit-transform: scale(2.5);
-    -ms-transform: scale(2.5);
-    -o-transform: scale(2.5);
-    transform: scale(2.5);
+    @include transform(2.5,null);
   }
 }
 
@@ -228,8 +223,7 @@ section .nav-main p {
     display: block;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    @include size(100%,100%);
     background: url("https://image.ibb.co/h9qYHA/bg-video.png") no-repeat center
       center;
     opacity: 0.1;
@@ -248,8 +242,7 @@ h3:after {
   content: "";
   position: absolute;
   display: block;
-  width: 72px;
-  height: 3px;
+  @include size(72px,3px);
   left: -webkit-calc(50% - 36px);
   left: calc(50% - 36px);
   bottom: 0px;
@@ -264,7 +257,6 @@ h3 {
 h1 {
   line-height: 1.2;
   font-size: 30px;
-  font-size: 1.875rem;
 }
 .title-main span,
 h1 span {
@@ -273,20 +265,17 @@ h1 span {
 .title-main span:last-child,
 h1 span:last-child {
   font-size: 23px;
-  font-size: 1.4375rem;
 }
 
 .title-sub {
   font-size: 48px;
-  font-size: 3rem;
   position: relative;
   
   &:after {
     content: "";
     position: absolute;
     display: block;
-    width: 82px;
-    height: 3px;
+    @include size(82px,3px);
     left: -webkit-calc(50% - 41px);
     left: calc(50% - 41px);
     bottom: -10px;
@@ -312,14 +301,12 @@ h1 span:last-child {
   bottom: 0;
   width: 100%;
   line-height: 40px;
-  //vertical-align: middle;
   padding: 10px;
   border-bottom: 2px solid rgba(104, 104, 104, 0.1);
 }
 
 h1 {
   font-size: 22px;
-  font-size: 1.375rem;
   display: inline-block;
 }
 

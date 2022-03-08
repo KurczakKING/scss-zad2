@@ -1,41 +1,25 @@
 @import "../utils/_variables";
 
-
 .nav-main {
   display: none;
   clear: both;
   background: $color-white;
 
   a {
+    @include transition(none, 0.3s, none);
+    @include display(block, 100%);
     position: relative;
     text-decoration: none;
-    padding-bottom: 2px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-    display: block;
-    width: 100%;
-    padding: 20px 0;
+    padding: 20px 0 2px 0;
 
     &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 4px;
-      width: 100%;
+      @include line-horizontal;
+      @include corners(none, 0, 0, 0);
+      @include size(100%, 4px);
+      @include transform(0, 1);
+      @include transform-origin(0, 50%);
+      @include transition(null, 0.3s, null);
       background-color: $color-secondary;
-      -webkit-transform: scale(0, 1);
-      -ms-transform: scale(0, 1);
-      -o-transform: scale(0, 1);
-      transform: scale(0, 1);
-      -webkit-transform-origin: 0 50%;
-      -ms-transform-origin: 0 50%;
-      -o-transform-origin: 0 50%;
-      transform-origin: 0 50%;
-      -webkit-transition: 0.3s;
-      -o-transition: 0.3s;
-      transition: 0.3s;
     }
 
     &:hover {
@@ -43,10 +27,7 @@
       font-weight: bold;
 
       &::before {
-        -webkit-transform: scale(1, 1);
-        -ms-transform: scale(1, 1);
-        -o-transform: scale(1, 1);
-        transform: scale(1, 1);
+        @include transform(1, 1);
       }
     }
   }
@@ -54,23 +35,16 @@
 
 .nav-toggle {
   display: inline-block;
-  //float: right;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  @include size(40px, 40px);
+  @include transition(null, 0.3s, null);
+  cursor: $cursor-hand;
 
   div {
     display: block;
-    width: 40px;
-    height: 3px;
-    margin-top: 7px;
+    @include size(40px, 3px);
+    @include transition(all, 0.5s, null);
     background-color: $color-primary;
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
+    margin-top: 7px;
   }
   &:hover {
     opacity: 0.7;
