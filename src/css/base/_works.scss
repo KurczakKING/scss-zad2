@@ -1,4 +1,6 @@
 @import "../utils/_variables";
+@import "../utils/_mixins";
+@import "../utils/_functions";
 
 .work-wrap {
   &:before {
@@ -12,14 +14,14 @@
 }
 
 figure {
-  @include display(inline-block, 100%);
+  @include display(inline-block, $size-full);
   @include margins(convertPxToRem(10), 0);
   position: relative;
   cursor: $cursor-hand;
 
   &:before {
     @include line-horizontal;
-    @include size(100%, 100%);
+    @include size($size-full, $size-full);
     @include corners(0, 0, 0, 0);
     @include transition(all, 1s, ease-in-out);
     background-color: $color-black;
@@ -43,7 +45,7 @@ figure {
   }
 
   img {
-    @include display(block, 100%);
+    @include display(block, $size-full);
   }
 
   figcaption {

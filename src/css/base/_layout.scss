@@ -2,24 +2,19 @@
 @import "../utils/_mixins";
 @import "../utils/_functions";
 
-html,
-body,
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 div,
 span,
 applet,
 object,
 iframe,
-h1,
-h2,
-h3,
-h3,
-h4,
-h5,
-h6,
 p,
-blockquote,
 pre,
-a,
 abbr,
 acronym,
 address,
@@ -32,7 +27,6 @@ em,
 img,
 ins,
 kbd,
-q,
 s,
 samp,
 small,
@@ -49,14 +43,11 @@ center,
 dl,
 dt,
 dd,
-ol,
-ul,
 li,
 fieldset,
 form,
 label,
 legend,
-table,
 caption,
 tbody,
 tfoot,
@@ -64,32 +55,46 @@ thead,
 tr,
 th,
 td,
-article,
-aside,
 canvas,
-details,
 embed,
 figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
 output,
 ruby,
-section,
 summary,
 time,
 mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 20px;
-  font: inherit;
-  vertical-align: baseline;
+audio {
+  @include format-base;
+}
+
+body {
+  @include format-base;
+  color: $color-primary;
+  font-family: "Roboto";
+  overflow-x: hidden;
+  width: $size-full;
+  padding: 25px;
+  line-height: 1.5;
+}
+
+blockquote {
+  @include format-base;
+  quotes: none;
+  &:before {
+    content: none;
+  }
+  &:after {
+    @extend blockquote:before;
+  }
+}
+
+q {
+  @extend blockquote;
+}
+
+html {
+  overflow-x: hidden;
+  width: $size-full;
 }
 
 article,
@@ -98,66 +103,25 @@ details,
 figcaption,
 figure,
 footer,
-header,
 hgroup,
-menu,
 nav,
 section {
   display: block;
 }
 
-body {
-  line-height: 1;
-  font-family: "Roboto";
-  overflow-x: hidden;
-  width: 100%;
-  padding: 25px;
-  line-height: 1.5;
-  color: $color-primary;
-}
-
-.container {
-  width: 100%;
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
 header {
+  color: $color-white;
   position: relative;
   background: url("https://image.ibb.co/jBXfxA/bg-contact.jpg") no-repeat center
     center/cover;
-  color: $color-white;
   padding: 15% 0 0 0;
   min-height: 650px;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
+.container {
+  @include margins(0, auto);
+  width: $size-full;
+  max-width: 1200px;
 }
 
 table {
@@ -165,15 +129,10 @@ table {
   border-spacing: 0;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .clearfix:after {
-  content: "";
+  width: $size-full;
+  content: $content-empty;
   display: block;
-  width: 100%;
   clear: both;
 }
 
@@ -185,26 +144,38 @@ h3,
   text-align: center;
 }
 
-.arrow {
-  @include transition(all,0.5s,none);
-
-  &:hover {
-    @include transform(2.5,null);
+h2 {
+  @include format-base;
+  @include header;
+  padding-bottom: 14px;
+  margin-bottom: 30px;
+  &:after {
+    @include line-horizontal;
+    @include size(72px, 3px);
+    background: $color-secondary;
+    display: block;    
+    left: -webkit-calc(50% - 36px);
+    left: calc(50% - 36px);
+    bottom: 0px;
   }
+}
+
+h3 {
+  @extend h2;
+  text-transform: none;
 }
 
 section {
   padding: 50px 0;
+  .text-center p,
+  h2 p,
+  h3 p,
+  .nav-main p {
+    padding: 0 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
-section .text-center p,
-section h2 p,
-section h3 p,
-section .nav-main p {
-  padding: 0 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
 
 #testimonials {
   padding: 5px 0;
@@ -220,12 +191,10 @@ section .nav-main p {
 #contact {
   position: relative;
   &:before {
-    content: "";
-    position: absolute;
+    @include size($size-full, $size-full);
+    @include corners(0, 0, 0, 0);
+    @include line-horizontal;
     display: block;
-    top: 0;
-    left: 0;
-    @include size(100%,100%);
     background: url("https://image.ibb.co/h9qYHA/bg-video.png") no-repeat center
       center;
     opacity: 0.1;
@@ -233,51 +202,31 @@ section .nav-main p {
   }
 }
 
-h2,
-h3 {
-  @include header;
-  padding-bottom: 14px;
-  margin-bottom: 30px;
-}
-h2:after,
-h3:after {
-  content: "";
-  position: absolute;
-  display: block;
-  @include size(72px,3px);
-  left: -webkit-calc(50% - 36px);
-  left: calc(50% - 36px);
-  bottom: 0px;
-  background: $color-secondary;
-}
-
-h3 {
-  text-transform: none;
-}
-
-.title-main,
-h1 {
+.title-main {
   line-height: 1.2;
   font-size: 30px;
+  span {
+    display: block;
+    &:last-child {
+      font-size: 23px;
+    }
+  }
 }
-.title-main span,
-h1 span {
-  display: block;
-}
-.title-main span:last-child,
-h1 span:last-child {
-  font-size: 23px;
+
+h1 {
+  @extend .title-main;
+  font-size: 22px;
+  display: inline-block;
 }
 
 .title-sub {
   font-size: 48px;
   position: relative;
-  
+
   &:after {
-    content: "";
-    position: absolute;
+    @include size(82px, 3px);
+    @include line-horizontal;
     display: block;
-    @include size(82px,3px);
     left: -webkit-calc(50% - 41px);
     left: calc(50% - 41px);
     bottom: -10px;
@@ -286,8 +235,7 @@ h1 span:last-child {
 }
 
 .title-blurb {
-  padding: 40px 0;
-
+  @include padding(40px, 0);
   span {
     display: block;
     line-height: 25px;
@@ -295,23 +243,24 @@ h1 span:last-child {
 }
 
 .menu {
+  @include corners(none, 0, 0, 0);
+  @include display(block,$size-full);
   color: $color-primary;
   background: $color-white;
-  display: block;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
   line-height: 40px;
   padding: 10px;
   border-bottom: 2px solid rgba(104, 104, 104, 0.1);
 }
 
-h1 {
-  font-size: 22px;
-  display: inline-block;
-}
-
 footer .copy {
   margin-top: 20px;
+}
+
+.arrow {
+  @include transition(all, 0.5s, none);
+
+  &:hover {
+    @include transform(2.5, null);
+  }
 }

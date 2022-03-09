@@ -9,7 +9,8 @@
 
   a {
     @include transition(none, 0.3s, none);
-    @include display(block, 100%);
+    @include display(block, $size-full);
+    color: $color-primary;
     position: relative;
     text-decoration: none;
     padding: convertPxToRem(20) 0 convertPxToRem(2) 0;
@@ -17,7 +18,7 @@
     &::before {
       @include line-horizontal;
       @include corners(none, 0, 0, 0);
-      @include size(100%, convertPxToRem(4));
+      @include size($size-full, convertPxToRem(4));
       @include transform(0, 1);
       @include transform-origin(0, 50%);
       @include transition(null, 0.3s, null);
@@ -53,3 +54,8 @@
   }
 }
 
+ol,
+ul {
+  @include format-base;
+  list-style: none;
+}

@@ -1,4 +1,14 @@
 @import "./_variables";
+@import "../utils/_functions";
+
+@mixin format-base {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 20px;
+  font: inherit;
+  vertical-align: baseline;
+}
 
 @mixin border($color) {
   border: 2px solid $color;
@@ -57,6 +67,10 @@
 
 @mixin margins($top-bot, $right-left) {
   margin: $top-bot $right-left;
+}
+
+@mixin padding($top-bot, $right-left) {
+  padding: $top-bot $right-left;
 }
 
 @mixin size($width, $height) {

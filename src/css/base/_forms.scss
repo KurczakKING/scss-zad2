@@ -12,7 +12,7 @@ form {
 }
 
 input {
-  @include display(block, 100%);
+  @include display(block, $size-full);
   @include border($color-secondary);
   font-size: $size-p;
   color: $color-primary;
