@@ -1,4 +1,6 @@
 @import "../utils/_variables";
+@import "../utils/_mixins";
+@import "../utils/_functions";
 
 html,
 body,
@@ -233,7 +235,7 @@ section .nav-main p {
 
 h2,
 h3 {
-  @extend %header;
+  @include header;
   padding-bottom: 14px;
   margin-bottom: 30px;
 }

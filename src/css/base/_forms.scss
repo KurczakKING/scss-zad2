@@ -1,22 +1,24 @@
 @import "../utils/_variables";
+@import "../utils/_mixins";
+@import "../utils/_functions";
 
 form {
-  @include margins(20px, auto);
-  max-width: 550px;
+  @include margins(convertPxToRem(20), auto);
+  max-width: convertPxToRem(550);
 
   p {
-    font-size: $p-size;
+    font-size: $size-p;
   }
 }
 
 input {
   @include display(block, 100%);
   @include border($color-secondary);
-  font-size: $p-size;
+  font-size: $size-p;
   color: $color-primary;
+  padding: convertPxToRem(15);
+  margin-bottom: convertPxToRem(20);
   outline: none;
-  padding: 15px;
-  margin-bottom: 20px;
 }
 textarea {
   @extend input;

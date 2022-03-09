@@ -1,4 +1,6 @@
 @import "../utils/_variables";
+@import "../utils/_mixins";
+@import "../utils/_functions";
 
 .nav-main {
   display: none;
@@ -10,12 +12,12 @@
     @include display(block, 100%);
     position: relative;
     text-decoration: none;
-    padding: 20px 0 2px 0;
+    padding: convertPxToRem(20) 0 convertPxToRem(2) 0;
 
     &::before {
       @include line-horizontal;
       @include corners(none, 0, 0, 0);
-      @include size(100%, 4px);
+      @include size(100%, convertPxToRem(4));
       @include transform(0, 1);
       @include transform-origin(0, 50%);
       @include transition(null, 0.3s, null);
@@ -41,12 +43,13 @@
 
   div {
     display: block;
-    @include size(40px, 3px);
+    @include size(convertPxToRem(40), convertPxToRem(3));
     @include transition(all, 0.5s, null);
     background-color: $color-primary;
-    margin-top: 7px;
+    margin-top: convertPxToRem(7);
   }
   &:hover {
     opacity: 0.7;
   }
 }
+
