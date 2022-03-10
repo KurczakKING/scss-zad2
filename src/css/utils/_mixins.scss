@@ -5,51 +5,38 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 20px;
+  font-size: convertPxToRem(20);
   font: inherit;
   vertical-align: baseline;
 }
 
-@mixin border($color) {
+@mixin border($color:none) {
   border: 2px solid $color;
 }
 
-@mixin border-bottom {
-  border-bottom: $border-caption;
-  bottom: 0;
-}
-
-@mixin border-left {
-  border-left: $border-caption;
-  left: 0;
-}
-
-@mixin border-top {
-  border-top: $border-caption;
-  top: 0;
-}
-
-@mixin border-right {
-  border-right: $border-caption;
-  right: 0;
+@mixin border-caption($vertical:none, $horizontal:none) {
+  @include caption;
+  border-#{$vertical}: convertPxToRem(2) solid #fff;
+  border-#{$horizontal}: convertPxToRem(2) solid #fff;
+  #{$vertical}: 0;
+  #{$horizontal}: 0;
 }
 
 @mixin caption {
+  @include size(20px,20px);
+  @include transition(all, 1s, ease-in-out);
   content: $content-empty;
   position: absolute;
-  height: 20px;
-  width: 20px;
-  @include transition(all, 1s, ease-in-out);
 }
 
-@mixin corners($top, $right, $bottom, $left) {
+@mixin edges($top, $right, $bottom, $left) {
   top: $top;
   right: $right;
   bottom: $bottom;
   left: $left;
 }
 
-@mixin display($display, $width) {
+@mixin display($display:block, $width:$size-full) {
   display: $display;
   width: $width;
 }
@@ -73,7 +60,7 @@
   padding: $top-bot $right-left;
 }
 
-@mixin size($width, $height) {
+@mixin size($width:$size-full, $height:$size-full) {
   width: $width;
   height: $height;
 }

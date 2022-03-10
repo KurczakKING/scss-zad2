@@ -1,12 +1,490 @@
 @import "./utils/_variables";
-@import "./utils/_buttons";
+
 @import "./utils/_mixins";
 @import "./utils/_functions";
 @import "./base/_typography";
+
+/*
+@import "./utils/_buttons";
+
+
+
 @import "./base/_layout";
 @import "./base/_navigation";
 @import "./base/_forms";
 @import "./base/_works";
+*/
+
+/* FORMS */
+
+form {
+  @include margins(convertPxToRem(20), auto);
+  max-width: convertPxToRem(550);
+
+  p {
+    font-size: $size-p;
+  }
+}
+
+input {
+  @include display(block, $size-full);
+  @include border($color-secondary);
+  font-size: $size-p;
+  color: $color-primary;
+  padding: convertPxToRem(15);
+  margin-bottom: convertPxToRem(20);
+  outline: none;
+}
+textarea {
+  @extend input;
+  resize: none;
+}
+
+
+/* LAYOUT */
+
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div,
+span,
+applet,
+object,
+iframe,
+p,
+pre,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+canvas,
+embed,
+figure,
+output,
+ruby,
+summary,
+time,
+mark,
+audio {
+  @include format-base;
+}
+
+body {
+  @include format-base;
+  color: $color-primary;
+  font-family: "Roboto";
+  overflow-x: hidden;
+  width: $size-full;
+  padding: convertPxToRem(25);
+  line-height: 1.5;
+}
+
+blockquote {
+  @include format-base;
+  quotes: none;
+  &:before {
+    content: none;
+  }
+  &:after {
+    @extend blockquote:before;
+  }
+}
+
+q {
+  @extend blockquote;
+}
+
+html {
+  overflow-x: hidden;
+  width: $size-full;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+header {
+  color: $color-white;
+  position: relative;
+  background: url("https://image.ibb.co/jBXfxA/bg-contact.jpg") no-repeat center
+    center/cover;
+  padding: 15% 0 0 0;
+  min-height: convertPxToRem(650);
+}
+
+.container {
+  @include margins(0, auto);
+  width: $size-full;
+  max-width: convertPxToRem(1200);
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.clearfix:after {
+  width: $size-full;
+  content: $content-empty;
+  display: block;
+  clear: both;
+}
+
+.text-center,
+.social-wrap,
+h2,
+h3,
+.nav-main {
+  text-align: center;
+}
+
+h2 {
+  @include format-base;
+  @include header;
+  padding-bottom: convertPxToRem(14);
+  margin-bottom: convertPxToRem(30);
+  &:after {
+    @include line-horizontal;
+    @include size(72px, 3px);
+    background: $color-secondary;
+    display: block;    
+    left: -webkit-calc(50% - 36px);
+    left: calc(50% - 36px);
+    bottom: 0;
+  }
+}
+
+h3 {
+  @extend h2;
+  text-transform: none;
+}
+
+section {
+  padding: 50px 0;
+  .text-center p,
+  h2 p,
+  h3 p,
+  .nav-main p {
+    padding: 0 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+#testimonials {
+  padding: 5px 0;
+}
+
+.video {
+  height: 500px;
+  background: url("https://i.imgur.com/0IRYG66.jpg") no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#contact {
+  position: relative;
+  &:before {
+    @include size($size-full, $size-full);
+    @include edges(none, 0, 0, none );
+    @include line-horizontal;
+    display: block;
+    background: url("https://image.ibb.co/h9qYHA/bg-video.png") no-repeat center
+      center;
+    opacity: 0.1;
+    z-index: -1;
+  }
+}
+
+.title-main {
+  line-height: 1.2;
+  font-size: 30px;
+  span {
+    display: block;
+    &:last-child {
+      font-size: 23px;
+    }
+  }
+}
+
+h1 {
+  @extend .title-main;
+  font-size: 22px;
+  display: inline-block;
+}
+
+.title-sub {
+  font-size: 48px;
+  position: relative;
+
+  &:after {
+    @include size(82px, 3px);
+    @include line-horizontal;
+    display: block;
+    left: -webkit-calc(50% - 41px);
+    left: calc(50% - 41px);
+    bottom: -10px;
+    background: $color-white;
+  }
+}
+
+.title-blurb {
+  @include padding(40px, 0);
+  span {
+    display: block;
+    line-height: 25px;
+  }
+}
+
+.menu {
+  @include edges(none, 0, 0, 0);
+  @include display;
+  color: $color-primary;
+  background: $color-white;
+  position: absolute;
+  line-height: 40px;
+  padding: 10px;
+  border-bottom: 2px solid rgba(104, 104, 104, 0.1);
+}
+
+footer .copy {
+  margin-top: 20px;
+}
+
+.arrow {
+  @include transition(all, 0.5s, none);
+
+  &:hover {
+    @include transform(2.5, none);
+  }
+}
+
+
+/* NAVIGATION */
+
+.nav-main {
+  display: none;
+  clear: both;
+  background: $color-white;
+
+  a {
+    @include transition(none, 0.3s, none);
+    @include display(block, $size-full);
+    color: $color-primary;
+    position: relative;
+    text-decoration: none;
+    padding: convertPxToRem(20) 0 convertPxToRem(2) 0;
+
+    &::before {
+      @include line-horizontal;
+      @include edges(none, 0, 0, 0);
+      @include size($size-full, convertPxToRem(4));
+      @include transform(0, 1);
+      @include transform-origin(0, 50%);
+      @include transition(none, 0.3s, none);
+      background-color: $color-secondary;
+    }
+
+    &:hover {
+      color: $color-secondary;
+      font-weight: bold;
+
+      &::before {
+        @include transform(1, 1);
+      }
+    }
+  }
+}
+
+.nav-toggle {
+  display: inline-block;
+  @include size(40px, 40px);
+  @include transition(none, 0.3s, none);
+  cursor: $cursor-hand;
+
+  div {
+    display: block;
+    @include size(convertPxToRem(40), convertPxToRem(3));
+    @include transition(all, 0.5s, none);
+    background-color: $color-primary;
+    margin-top: convertPxToRem(7);
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+ol,
+ul {
+  @include format-base;
+  list-style: none;
+}
+
+
+/* WORKS */
+
+.work-wrap {
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    @extend .work-wrap:before;
+    clear: both;
+  }
+}
+
+figure {
+  @include display(inline-block, $size-full);
+  @include margins(convertPxToRem(10), 0);
+  position: relative;
+  cursor: $cursor-hand;
+
+  &:before {
+    @include line-horizontal;
+    @include size($size-full, $size-full);
+    @include edges(0, 0, 0, 0);
+    @include transition(all, 1s, ease-in-out);
+    background-color: $color-black;
+    opacity: 0;
+  }
+  &:hover:before {
+    opacity: 0.7;
+  }
+
+  &:hover .caption-head:before {
+    @include edges($size-c, 0, 0, $size-c);
+  }
+  &:hover .caption-head:after {
+    @include edges($size-c, $size-c, 0, none);
+  }
+  &:hover .caption-blurb:before {
+    @include edges(none, none, $size-c, $size-c);
+  }
+  &:hover .caption-blurb:after {
+    @include edges(none, $size-c, $size-c, none);
+  }
+
+  img {
+    @include display(block, $size-full);
+  }
+
+  figcaption {
+    @include trans-centered;
+    @include transition(all, 1s, ease-in-out);
+    color: $color-white;
+    min-width: convertPxToRem(200);
+    line-height: 2;
+
+    &:before {
+      @include trans-centered;
+      @include size(80%, convertPxToRem(2));
+      @include line-horizontal;
+      background-color: $color-white;
+      top: -webkit-calc(50% + 2px);
+      top: calc(50% + 2px);
+    }
+
+    .caption-head {
+      @include header;
+
+      &:before {
+        @include border-caption(top,left);
+      }
+      &:after {
+        @include border-caption(top,right);
+      }
+    }
+    .caption-blurb {
+      position: relative;
+
+      &:before {
+        @include border-caption(bottom,left);
+      }
+      &:after {
+        @include border-caption(bottom,right);
+      }
+    }
+  }
+}
+
+/* BUTTONS */
+
+button {
+  @include transition(opacity,0.5s,none);
+  background-color: $color-secondary;
+  color: $color-white;
+  cursor: $cursor-hand;
+  border: none;
+  @include padding(10px,30px);
+  text-transform: uppercase;
+  font-size: $size-p;
+  
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &-send {
+    margin-top: 10px;
+  }
+
+}
+
+
+
+
+
+
+
+/* MEDIA */
 
 $breakpoint-small: 500px;
 $breakpoint-medium: 768px;
@@ -86,3 +564,5 @@ $breakpoint-large: 992px;
     margin-top: 10px;
   }
 }
+
+
