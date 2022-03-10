@@ -15,11 +15,30 @@ button {
   border: none;
   padding: 10px 30px;
   text-transform: uppercase;
-  font-size: 12px; }
+  font-size: 0.75rem; }
   button:hover {
     opacity: 0.6; }
   button-send {
     margin-top: 10px; }
+
+form {
+  margin: 20px auto;
+  max-width: 34.375rem; }
+  form p {
+    font-size: 0.75rem; }
+
+input, textarea {
+  display: block;
+  width: 100%;
+  border: 2px solid #d07c7c;
+  font-size: 0.75rem;
+  padding: 0.9375rem;
+  margin-bottom: 1.25rem;
+  color: #686868;
+  outline: none; }
+
+textarea {
+  resize: none; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -63,7 +82,6 @@ dt,
 dd,
 li,
 fieldset,
-form,
 label,
 legend,
 caption,
@@ -85,7 +103,7 @@ audio {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 20px;
+  font-size: 1.25rem;
   font: inherit;
   vertical-align: baseline; }
 
@@ -93,7 +111,7 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 20px;
+  font-size: 1.25rem;
   font: inherit;
   vertical-align: baseline;
   color: #686868;
@@ -107,7 +125,7 @@ blockquote, q {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 20px;
+  font-size: 1.25rem;
   font: inherit;
   vertical-align: baseline;
   quotes: none; }
@@ -165,12 +183,12 @@ h3 {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 20px;
+  font-size: 1.25rem;
   font: inherit;
   vertical-align: baseline;
   position: relative;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 1.375rem;
   padding-bottom: 0.875rem;
   margin-bottom: 1.875rem; }
   h2:after, h3:after {
@@ -351,29 +369,10 @@ ul {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 20px;
+  font-size: 1.25rem;
   font: inherit;
   vertical-align: baseline;
   list-style: none; }
-
-form {
-  margin: 1.25rem auto;
-  max-width: 34.375rem; }
-  form p {
-    font-size: 12px; }
-
-input, textarea {
-  display: block;
-  width: 100%;
-  border: 2px solid #d07c7c;
-  font-size: 12px;
-  color: #686868;
-  padding: 0.9375rem;
-  margin-bottom: 1.25rem;
-  outline: none; }
-
-textarea {
-  resize: none; }
 
 .work-wrap:before, .work-wrap:after {
   content: " ";
@@ -455,58 +454,59 @@ figure {
     figure figcaption .caption-head {
       position: relative;
       text-transform: uppercase;
-      font-size: 22px; }
+      font-size: 1.375rem; }
       figure figcaption .caption-head:before {
-        content: "";
-        position: absolute;
-        height: 20px;
         width: 20px;
+        height: 20px;
         -webkit-transition: all 1s ease-in-out;
         -o-transition: all 1s ease-in-out;
         transition: all 1s ease-in-out;
-        border-top: 2px solid #fff;
+        content: "";
+        position: absolute;
+        border-top: 0.125rem solid #fff;
+        border-left: 0.125rem solid #fff;
         top: 0;
-        border-left: 2px solid #fff;
         left: 0; }
       figure figcaption .caption-head:after {
-        content: "";
-        position: absolute;
-        height: 20px;
         width: 20px;
+        height: 20px;
         -webkit-transition: all 1s ease-in-out;
         -o-transition: all 1s ease-in-out;
         transition: all 1s ease-in-out;
-        border-top: 2px solid #fff;
+        content: "";
+        position: absolute;
+        border-top: 0.125rem solid #fff;
+        border-right: 0.125rem solid #fff;
         top: 0;
-        border-right: 2px solid #fff;
         right: 0; }
     figure figcaption .caption-blurb {
       position: relative; }
       figure figcaption .caption-blurb:before {
-        content: "";
-        position: absolute;
-        height: 20px;
         width: 20px;
+        height: 20px;
         -webkit-transition: all 1s ease-in-out;
         -o-transition: all 1s ease-in-out;
         transition: all 1s ease-in-out;
-        border-bottom: 2px solid #fff;
+        content: "";
+        position: absolute;
+        border-bottom: 0.125rem solid #fff;
+        border-left: 0.125rem solid #fff;
         bottom: 0;
-        border-left: 2px solid #fff;
         left: 0; }
       figure figcaption .caption-blurb:after {
-        content: "";
-        position: absolute;
-        height: 20px;
         width: 20px;
+        height: 20px;
         -webkit-transition: all 1s ease-in-out;
         -o-transition: all 1s ease-in-out;
         transition: all 1s ease-in-out;
-        border-bottom: 2px solid #fff;
+        content: "";
+        position: absolute;
+        border-bottom: 0.125rem solid #fff;
+        border-right: 0.125rem solid #fff;
         bottom: 0;
-        border-right: 2px solid #fff;
         right: 0; }
 
+/* MEDIA */
 @media (min-width: 500px) {
   .caption-blurb {
     font-size: 18px; } }

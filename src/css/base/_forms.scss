@@ -3,21 +3,21 @@
 @import "../utils/_functions";
 
 form {
-  @include margins(convertPxToRem(20), auto);
-  max-width: convertPxToRem(550);
+  margin: pxToRem(20) auto;
+  max-width: pxToRem(550);
 
   p {
-    font-size: $size-p;
+    font-size: pxToRem(12);
   }
 }
 
 input {
-  @include display(block, $size-full);
+  @include display;
   @include border($color-secondary);
-  font-size: $size-p;
+  font-size: pxToRem(12);
+  padding: pxToRem(15);
+  margin-bottom: pxToRem(20);
   color: $color-primary;
-  padding: convertPxToRem(15);
-  margin-bottom: convertPxToRem(20);
   outline: none;
 }
 textarea {

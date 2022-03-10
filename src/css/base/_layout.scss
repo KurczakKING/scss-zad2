@@ -2,8 +2,6 @@
 @import "../utils/_mixins";
 @import "../utils/_functions";
 
-
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -47,7 +45,6 @@ dt,
 dd,
 li,
 fieldset,
-form,
 label,
 legend,
 caption,
@@ -71,12 +68,12 @@ audio {
 
 body {
   @include format-base;
+  width: $full;
   color: $color-primary;
+  padding: pxToRem(25);
+  line-height: 1.5;
   font-family: "Roboto";
   overflow-x: hidden;
-  width: $size-full;
-  padding: convertPxToRem(25);
-  line-height: 1.5;
 }
 
 blockquote {
@@ -95,8 +92,8 @@ q {
 }
 
 html {
+  width: $full;
   overflow-x: hidden;
-  width: $size-full;
 }
 
 article,
@@ -113,26 +110,26 @@ section {
 
 header {
   color: $color-white;
+  min-height: pxToRem(650);
   position: relative;
   background: url("https://image.ibb.co/jBXfxA/bg-contact.jpg") no-repeat center
     center/cover;
   padding: 15% 0 0 0;
-  min-height: convertPxToRem(650);
 }
 
 .container {
-  @include margins(0, auto);
-  width: $size-full;
-  max-width: convertPxToRem(1200);
+  margin: 0, auto;
+  width: $full;
+  max-width: pxToRem(1200);
 }
 
 table {
-  border-collapse: collapse;
   border-spacing: 0;
+  border-collapse: collapse;
 }
 
 .clearfix:after {
-  width: $size-full;
+  width: $full;
   content: $content-empty;
   display: block;
   clear: both;
@@ -149,13 +146,13 @@ h3,
 h2 {
   @include format-base;
   @include header;
-  padding-bottom: convertPxToRem(14);
-  margin-bottom: convertPxToRem(30);
+  padding-bottom: pxToRem(14);
+  margin-bottom: pxToRem(30);
   &:after {
     @include line-horizontal;
-    @include size(72px, 3px);
+    @include sizePx(72, 3);
     background: $color-secondary;
-    display: block;    
+    display: block;
     left: -webkit-calc(50% - 36px);
     left: calc(50% - 36px);
     bottom: 0;
@@ -168,23 +165,23 @@ h3 {
 }
 
 section {
-  padding: 50px 0;
+  @include paddingPx(50, 0);
   .text-center p,
   h2 p,
   h3 p,
   .nav-main p {
-    padding: 0 20px;
-    max-width: 900px;
+    @include paddingPx(0, 20);
+    max-width: pxToRem(900);
     margin: 0 auto;
   }
 }
 
 #testimonials {
-  padding: 5px 0;
+  @include paddingPx(5, 0);
 }
 
 .video {
-  height: 500px;
+  height: pxToRem(500);
   background: url("https://i.imgur.com/0IRYG66.jpg") no-repeat;
   background-size: cover;
   position: relative;
@@ -193,70 +190,70 @@ section {
 #contact {
   position: relative;
   &:before {
-    @include size($size-full, $size-full);
-    @include corners(0, 0, 0, 0);
+    @include size;
+    @include edge(0, 0);
     @include line-horizontal;
+    opacity: 0.1;
+    z-index: -1;
     display: block;
     background: url("https://image.ibb.co/h9qYHA/bg-video.png") no-repeat center
       center;
-    opacity: 0.1;
-    z-index: -1;
   }
 }
 
 .title-main {
   line-height: 1.2;
-  font-size: 30px;
+  font-size: pxToRem(30);
   span {
     display: block;
     &:last-child {
-      font-size: 23px;
+      font-size: pxToRem(23);
     }
   }
 }
 
 h1 {
   @extend .title-main;
-  font-size: 22px;
+  font-size: pxToRem(22);
   display: inline-block;
 }
 
 .title-sub {
-  font-size: 48px;
+  font-size: pxToRem(48);
   position: relative;
 
   &:after {
-    @include size(82px, 3px);
+    @include sizePx(82, 3);
     @include line-horizontal;
-    display: block;
+    bottom: pxToRem(-10);
+    background: $color-white;
     left: -webkit-calc(50% - 41px);
     left: calc(50% - 41px);
-    bottom: -10px;
-    background: $color-white;
+    display: block;
   }
 }
 
 .title-blurb {
-  @include padding(40px, 0);
+  @include paddingPx(40, 0);
   span {
     display: block;
-    line-height: 25px;
+    line-height: pxToRem(25);
   }
 }
 
 .menu {
-  @include corners(none, 0, 0, 0);
-  @include display(block,$size-full);
+  @include edge(null, 0, 0);
+  @include display(block, $full);
+  padding: pxToRem(10);
+  line-height: pxToRem(40);
+  border-bottom: pxToRem(2) solid rgba(104, 104, 104, 0.1);
   color: $color-primary;
   background: $color-white;
   position: absolute;
-  line-height: 40px;
-  padding: 10px;
-  border-bottom: 2px solid rgba(104, 104, 104, 0.1);
 }
 
 footer .copy {
-  margin-top: 20px;
+  margin-top: pxToRem(20);
 }
 
 .arrow {
@@ -266,4 +263,3 @@ footer .copy {
     @include transform(2.5, null);
   }
 }
-

@@ -5,46 +5,46 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: convertPxToRem(20);
+  font-size: pxToRem(20);
   font: inherit;
   vertical-align: baseline;
 }
 
-@mixin border($color:none) {
-  border: 2px solid $color;
+@mixin border($color: none) {
+  border: pxToRem(2) solid $color;
 }
 
-@mixin border-caption($vertical:none, $horizontal:none) {
+@mixin border-caption($vertical: none, $horizontal: none) {
   @include caption;
-  border-#{$vertical}: convertPxToRem(2) solid #fff;
-  border-#{$horizontal}: convertPxToRem(2) solid #fff;
+  border-#{$vertical}: pxToRem(2) solid #fff;
+  border-#{$horizontal}: pxToRem(2) solid #fff;
   #{$vertical}: 0;
   #{$horizontal}: 0;
 }
 
 @mixin caption {
-  @include size(20px,20px);
+  @include sizePx(20, 20);
   @include transition(all, 1s, ease-in-out);
   content: $content-empty;
   position: absolute;
 }
 
-@mixin edges($top, $right, $bottom, $left) {
+@mixin display($display: block, $width: $full) {
+  display: $display;
+  width: $width;
+}
+
+@mixin edge($top, $right: null, $bottom: null, $left: null) {
   top: $top;
   right: $right;
   bottom: $bottom;
   left: $left;
 }
 
-@mixin display($display:block, $width:$size-full) {
-  display: $display;
-  width: $width;
-}
-
 @mixin header {
   position: relative;
   text-transform: uppercase;
-  font-size: convertPxToRem(22);
+  font-size: pxToRem(22);
 }
 
 @mixin line-horizontal {
@@ -52,17 +52,21 @@
   content: $content-empty;
 }
 
-@mixin margins($top-bot, $right-left) {
-  margin: $top-bot $right-left;
+@mixin marginPx($top, $right: 0, $bottom: 0, $left: 0) {
+  margin: pxToRem($top) pxToRem($right) pxToRem($bottom) pxToRem($left);
 }
 
-@mixin padding($top-bot, $right-left) {
-  padding: $top-bot $right-left;
+@mixin paddingPx($top: null, $right: null) {
+  padding: pxToRem($top) pxToRem($right);
 }
 
-@mixin size($width:$size-full, $height:$size-full) {
+@mixin size($width: $full, $height: $full) {
   width: $width;
   height: $height;
+}
+@mixin sizePx($width, $height) {
+  width: pxToRem($width);
+  height: pxToRem($height);
 }
 
 @mixin trans-centered {

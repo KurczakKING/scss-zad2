@@ -14,15 +14,15 @@
 }
 
 figure {
-  @include display(inline-block, $size-full);
-  @include margins(convertPxToRem(10), 0);
-  position: relative;
+  @include display(inline-block);
+  @include marginPx(10);
   cursor: $cursor-hand;
+  position: relative;
 
   &:before {
     @include line-horizontal;
-    @include size($size-full, $size-full);
-    @include corners(0, 0, 0, 0);
+    @include size($full, $full);
+    @include edge(0, 0);
     @include transition(all, 1s, ease-in-out);
     background-color: $color-black;
     opacity: 0;
@@ -32,33 +32,33 @@ figure {
   }
 
   &:hover .caption-head:before {
-    @include corners($size-c, 0, 0, $size-c);
+    @include edge($size-corner, 0, 0, $size-corner);
   }
   &:hover .caption-head:after {
-    @include corners($size-c, $size-c, 0, null);
+    @include edge($size-corner, $size-corner, 0, null);
   }
   &:hover .caption-blurb:before {
-    @include corners(null, 0, $size-c, $size-c);
+    @include edge(null, 0, $size-corner, $size-corner);
   }
   &:hover .caption-blurb:after {
-    @include corners(null, $size-c, $size-c, null);
+    @include edge(null, $size-corner, $size-corner, null);
   }
 
   img {
-    @include display(block, $size-full);
+    @include display;
   }
 
   figcaption {
     @include trans-centered;
     @include transition(all, 1s, ease-in-out);
+    min-width: pxToRem(200);
     color: $color-white;
-    min-width: convertPxToRem(200);
     line-height: 2;
 
     &:before {
       @include trans-centered;
-      @include size(80%, convertPxToRem(2));
       @include line-horizontal;
+      @include size(80%, pxToRem(2));
       background-color: $color-white;
       top: -webkit-calc(50% + 2px);
       top: calc(50% + 2px);
@@ -68,28 +68,20 @@ figure {
       @include header;
 
       &:before {
-        @include caption;
-        @include border-top;
-        @include border-left;
+        @include border-caption(top, left);
       }
       &:after {
-        @include caption;
-        @include border-top;
-        @include border-right;
+        @include border-caption(top, right);
       }
     }
     .caption-blurb {
       position: relative;
 
       &:before {
-        @include caption;
-        @include border-bottom;
-        @include border-left;
+        @include border-caption(bottom, left);
       }
       &:after {
-        @include caption;
-        @include border-bottom;
-        @include border-right;
+        @include border-caption(bottom, right);
       }
     }
   }
