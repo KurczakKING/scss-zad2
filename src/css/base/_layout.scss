@@ -109,16 +109,20 @@ section {
 }
 
 header {
-  color: $color-white;
+  @include respond(medium) {
+    min-height: 95vh;
+    padding-top: 14em;
+  }
   min-height: pxToRem(650);
+  color: $color-white;
+  padding: 15% 0 0 0;
   position: relative;
   background: url("https://image.ibb.co/jBXfxA/bg-contact.jpg") no-repeat center
     center/cover;
-  padding: 15% 0 0 0;
 }
 
 .container {
-  margin: 0, auto;
+  margin: 0 auto;
   width: $full;
   max-width: pxToRem(1200);
 }

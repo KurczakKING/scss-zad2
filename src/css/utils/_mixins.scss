@@ -98,3 +98,21 @@
   -o-transition: $elem $time $func;
   transition: $elem $time $func;
 }
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == small {
+    @media (min-width: $bp-small) {
+      @content;
+    }
+  }
+  @if $breakpoint == medium {
+    @media (min-width: $bp-medium) {
+      @content;
+    }
+  }
+  @if $breakpoint == large {
+    @media (min-width: $bp-large) {
+      @content;
+    }
+  }
+}

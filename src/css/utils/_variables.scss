@@ -1,3 +1,6 @@
+$bp-small: pxToRem(500);
+$bp-medium: pxToRem(768);
+$bp-large: pxToRem(992);
 $border-caption: 2px solid #fff;
 $color-primary: #686868;
 $color-secondary: #d07c7c;
@@ -7,4 +10,3 @@ $content-empty: "";
 $cursor-hand: pointer;
 $full: 100%;
 $size-corner: pxToRem(-20);
-

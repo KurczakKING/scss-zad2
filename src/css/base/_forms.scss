@@ -3,11 +3,23 @@
 @import "../utils/_functions";
 
 form {
+  @include respond(large) {
+    padding-bottom: pxToRem(40);
+  }
   margin: pxToRem(20) auto;
   max-width: pxToRem(550);
 
   p {
+    @include respond(large) {
+      display: inline-block;
+      float: left;
+    }
     font-size: pxToRem(12);
+  }
+
+  .button-send {
+    margin-top: 0;
+    float: right;
   }
 }
 
@@ -23,4 +35,13 @@ input {
 textarea {
   @extend input;
   resize: none;
+}
+
+.text-center form p,
+h2 form p,
+h3 form p,
+.nav-main form p {
+  @include respond(large) {
+    margin-top: 10px;
+  }
 }
